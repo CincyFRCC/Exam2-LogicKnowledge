@@ -13,6 +13,12 @@ public class LogicKnowledge {
         int result = greenTicket(a, b, c);
 
         System.out.println("Result: " + result);
+        System.out.println("ChocolateResult: " + makeChocolate(4, 1, 9));
+        System.out.println("ChocolateResult: " + makeChocolate(4, 1, 10));
+        System.out.println("ChocolateResult: " + makeChocolate(4, 1, 7));
+        System.out.println("ChocolateResult: " + makeChocolate(4, 2, 7));
+
+
     }
 
     public static int greenTicket(int a, int b, int c) {
@@ -24,8 +30,17 @@ public class LogicKnowledge {
             return 0;
         }
     }
+
     public static int makeChocolate(int small, int large, int goal) {
-return 0;
+        if (goal <= small + large * 5) {
+            // int smallBarstoUse=goal-(large*5);
+            int maxLargeBars = goal / 5;
+            int usedLargeBars = Math.min(maxLargeBars, large);
+            int smallBarstoUse = goal - (usedLargeBars * 5);
+            return smallBarstoUse;
+        } else {
+            return -1;
+        }
     }
 
 }
